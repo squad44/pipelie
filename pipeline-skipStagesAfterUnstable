@@ -8,10 +8,7 @@ pipeline {
         stages {
             stage ("Build"){
                 steps {
-                    echo " making build unstable useing global variable "
-                    script {
-                        currentBuild.result = "UNSTABLE"
-                    }
+                    echo " making build unstable useing global variable"
                 }
             }
             stage ("Deploy"){
