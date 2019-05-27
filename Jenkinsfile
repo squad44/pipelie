@@ -1,9 +1,11 @@
 pipeline {
        agent any
-           options {
-                 timestamps()
+         //  options {
+           //      timestamps()
                  /* overrideIndexTriggers(true)
+                 */
                    }
+          //
        stages {
             stage ('Build') {
             steps {
