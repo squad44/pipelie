@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    triggers {
+        pollSCM (" * * * * * ")
+    }
+    stages {
+        stage ('Build'){
+            steps {
+            checkout([$class: 'GitSCM',
+            branches: [[name: '*/master']], 
+            doGenerateSubmoduleConfigurations: false, 
+            extensions: [], submoduleCfg: [], 
+            userRemoteConfigs: [[credentialsId: 'ravi1', 
+            url: 'https://github.com/squad44/pipelie.git']]])
+        }
+    }
+    stage ("Test") {
+        steps {
+            sh "cat /etc/shells"
+        }
+    }
+}
+}
