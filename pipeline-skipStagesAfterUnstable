@@ -1,0 +1,24 @@
+pipeline {
+    agent any 
+    options {
+        timestamps()
+        skipStagesAfterUnstable()
+    
+    }
+        stages {
+            stage ("Build"){
+                steps {
+                    echo " making build unstable useing global variable "
+                    script {
+                        currentBuild.result = "UNSTABLE"
+                    }
+                }
+            }
+            stage ("Deploy"){
+            steps {
+                echo "build is Deploying"
+            }
+        }
+    }
+}
+
